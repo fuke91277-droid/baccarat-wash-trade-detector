@@ -1,24 +1,22 @@
+import streamlit as st
 import pandas as pd
 import numpy as np
-import streamlit as st
-import io
 import re
-import zipfile
-from collections import defaultdict
-from datetime import datetime
-from itertools import combinations
+import logging
+from collections import Counter, defaultdict
+from functools import lru_cache
+import hashlib
+import io
+import warnings
+import time
+warnings.filterwarnings('ignore')
 
-# 设置页面配置（放在最前面）
+# 设置页面
 st.set_page_config(
-    page_title="百家乐对刷检测系统",
-    page_icon="🎰",
+    page_title="智能彩票分析检测系统",
     layout="wide",
     initial_sidebar_state="expanded"
 )
-
-# 禁用警告
-import warnings
-warnings.filterwarnings('ignore')
 
 # ==================== 配置类 ====================
 class BaccaratConfig:
