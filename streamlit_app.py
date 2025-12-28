@@ -3,28 +3,22 @@ import numpy as np
 import streamlit as st
 import io
 import re
-import logging
 import zipfile
-import openpyxl
-from openpyxl.styles import Font, Alignment
 from collections import defaultdict
 from datetime import datetime
 from itertools import combinations
-import warnings
-import traceback
 
-# 配置日志和警告
-warnings.filterwarnings('ignore')
-logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
-logger = logging.getLogger('BaccaratWashTrade')
-
-# Streamlit 页面配置
+# 设置页面配置（放在最前面）
 st.set_page_config(
     page_title="百家乐对刷检测系统",
     page_icon="🎰",
     layout="wide",
     initial_sidebar_state="expanded"
 )
+
+# 禁用警告
+import warnings
+warnings.filterwarnings('ignore')
 
 # ==================== 配置类 ====================
 class BaccaratConfig:
